@@ -2,22 +2,25 @@
 define("DOCROOT", $_SERVER["DOCUMENT_ROOT"]);
 include DOCROOT . '/functions.inc';
 
-$page = @$_GET["page"];
+$page = empty($_GET['page']) ? "main" : $_GET['page'];
 
-if(empty($page)||$page=="main") {
-	$logicfile = "main";
-	$pagefunc = "main";
+$_ROUTES = [
+    "main"=>"main.main",
+    "about"=>"main.about",
+    "photo"=>"main.photo",
+    "news"=>"main.news",
+    "contacts"=>"main.contacts",
+    "404"=>"404.error"
+];
+;
+
+if(empty($_ROUTES[$page])) {
+    $page = '404';
 }
-elseif($page == "contacts"){
-	$logicfile = "main";
-	$pagefunc = "contacts";
-}else{
-	$logicfile = "404";
-	$pagefunc = "error";
-}
+list($logicpage,$pagefunc) = explode(".",$_ROUTES[$page]);
 
 
-loadPage($logicfile,$pagefunc);
+loadPage($logicpage,$pagefunc);
 
 
 

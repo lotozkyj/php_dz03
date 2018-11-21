@@ -1,0 +1,53 @@
+h1{
+    text-align: center;
+}
+.menu {
+    margin-left: 18%;
+    padding: 4px;
+}
+.menu a {
+    display: inline-block;
+    margin: 5px 10px;
+    border: 1px solid #000;
+    padding: 3px;
+    text-align: center;
+    width: 150px;
+    height: 35px;
+    line-height: 35px;
+    text-decoration: none;
+    font-size: 28px;
+    background-color: #00aacc;
+    color: white;
+    border-radius: 3px;
+}
+.form{
+    margin-left: 40%;
+}
+
+.form .item{
+    width: 350px;
+    height: 25px;
+    margin: 5px;
+    border: 1px solid black;
+}
+
+.form .mess{
+    width: 350px;
+    margin: 5px;
+    border: 1px solid black;
+}
+
+.form button{
+    width: 150px;
+    height: 25px;
+    margin: 5px;
+}
+
+.photos{
+    margin-left: 35%;
+}
+.photos img{
+    margin: 5px;
+    border: 1px solid blue;
+    border-radius: 10px;
+}

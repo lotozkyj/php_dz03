@@ -3,21 +3,24 @@ function getRootPath($path="/"){
 	return DOCROOT.$path;
 }
 
-function renderTemplate($template,$content){
+function renderTemplate($template,$data){
 	ob_start();
+	extract($data);
 	include getRootPath("/templates/".$template.".php");
 	return ob_get_clean();
 }
 
-function renderView($view){
+function renderView($view,$data=[]){
 	ob_start();
+    extract($data);
 	include getRootPath("/views/".$view.".php");
 	return ob_get_clean();
 }
 
-function renderViewWithTemplate($view,$template){
-	$content = renderView($view);
-	return renderTemplate($template,$content);
+function renderViewWithTemplate($view,$template,$data=[]){
+	$content = renderView($view,$data);
+	$data['content'] = $content;
+	return renderTemplate($template,$data);
 }
 
 function loadPage($logicfile,$pagefunc){
